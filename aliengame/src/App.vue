@@ -1,8 +1,8 @@
 <template>
   <div id="app" class="container">
-    <GameStateStart></GameStateStart>
+    <GameStateStart v-if="uiState === 'start'"></GameStateStart>
 
-    <section>
+    <section v-else>
       <svg viewBox="0 -180 1628 1180" class="main">
         <defs>
           <clipPath id="bottom-clip">
