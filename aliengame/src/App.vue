@@ -1,8 +1,22 @@
 <template>
   <div id="app" class="container">
-    <GameStateStart v-if="uiState === 'start'"
-      ><h2>Which hooman do you wanna be?</h2></GameStateStart
-    >
+    <GameStateStart v-if="uiState === 'start'">
+      <h2>Which hooman do you wanna be?</h2>
+
+      <p
+        v-for="option in characterChoices"
+        :key="option"
+        class="character-choices"
+      >
+        <input
+          v-model="characterInput"
+          :id="option"
+          :value="option"
+          type="radio"
+        />
+        <label :for="option">{{ option }}</label>
+      </p>
+    </GameStateStart>
 
     <section v-else>
       <svg viewBox="0 -180 1628 1180" class="main">
@@ -78,11 +92,18 @@ export default {
   components: {
     GameStateStart
   },
+  data() {
+    return {
+      characterInput: ""
+    };
+  },
   computed: {
     ...mapState([
       "uiState",
-      "questions"
-    ]) /* allow to use this.uiState instead of this.store.state.uiState */
+      "questions",
+      "characterChoices",
+      "character"
+    ]) /* mapping: allow to use this.uiState instead of this.store.state.uiState */
   }
 };
 </script>
