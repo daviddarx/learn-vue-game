@@ -1,6 +1,8 @@
 <template>
   <div id="app" class="container">
-    <GameStateStart v-if="uiState === 'start'"></GameStateStart>
+    <GameStateStart v-if="uiState === 'start'"
+      ><h2>Which hooman do you wanna be?</h2></GameStateStart
+    >
 
     <section v-else>
       <svg viewBox="0 -180 1628 1180" class="main">
