@@ -6,8 +6,10 @@ Vue.use(Vuex);
 export default new Vuex.Store({
   state: {
     uiState: "start",
-    characterChoices: ["Baker", "Mechanic", "Artist"],
+    characterChoices: ["baker", "mechanic", "artist"],
     character: "",
+    questionIndex: 0,
+    score: 0,
     questions: [
       {
         question: `What's your dog's name?`,
@@ -54,6 +56,13 @@ export default new Vuex.Store({
     },
     updateUIState(state, uiState) {
       state.uiState = uiState;
+    },
+    answerQuestion(state, character) {
+      character === state.character ? (state.score += 10) : (state.score -= 10);
+
+      if (state.questionIndex < state.questions.length - 1) {
+        state.questionIndex++;
+      }
     }
   },
   actions: {},
