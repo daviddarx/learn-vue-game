@@ -74,6 +74,7 @@ import { mapState } from "vuex";
 import GameStateStart from "@/components/GameStateStart.vue";
 
 export default {
+  name: "App",
   components: {
     GameStateStart
   },
