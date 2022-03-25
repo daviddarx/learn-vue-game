@@ -5,6 +5,7 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
+    uiState: "start",
     questions: [
       {
         question: `What's your dog's name?`,

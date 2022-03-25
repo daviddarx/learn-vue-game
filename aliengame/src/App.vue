@@ -62,7 +62,18 @@
   </div>
 </template>
 
-<script></script>
+<script>
+import { mapState } from "vuex";
+
+export default {
+  computed: {
+    ...mapState([
+      "uiState",
+      "questions"
+    ]) /* allow to use this.uiState instead of this.store.state.uiState */
+  }
+};
+</script>
 
 <style lang="scss">
 body {
