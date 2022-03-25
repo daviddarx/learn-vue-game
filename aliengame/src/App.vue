@@ -90,7 +90,7 @@
         <h3>{{ questions[questionIndex].question }}</h3>
       </div>
       <div class="zombietalk">
-        <p v-for="character in characterChoices" :key="character">
+        <p v-for="character in shuffle(characterChoices)" :key="character">
           <button @click="answerQuestion(character)">
             {{ questions[questionIndex][character] }}
           </button>
@@ -145,6 +145,22 @@ export default {
     },
     answerQuestion(character) {
       this.$store.commit("answerQuestion", character);
+    },
+    shuffle(array) {
+      // Fisher-Yates shuffle
+      var m = array.length,
+        t,
+        i;
+
+      while (m) {
+        i = Math.floor(Math.random() * m--);
+
+        t = array[m];
+        array[m] = array[i];
+        array[i] = t;
+      }
+
+      return array;
     }
   }
 };
