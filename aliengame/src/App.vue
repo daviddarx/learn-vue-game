@@ -16,6 +16,8 @@
         />
         <label :for="option">{{ option }}</label>
       </p>
+
+      <button @click="pickCharacter">Pick your character</button>
     </GameStateStart>
 
     <section v-else>
@@ -104,6 +106,12 @@ export default {
       "characterChoices",
       "character"
     ]) /* mapping: allow to use this.uiState instead of this.store.state.uiState */
+  },
+  methods: {
+    pickCharacter() {
+      this.$store.commit("pickCharacter", this.characterInput);
+      this.$store.commit("updateUIState", "characterChosen");
+    }
   }
 };
 </script>

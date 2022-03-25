@@ -48,7 +48,14 @@ export default new Vuex.Store({
     ]
   },
   getters: {},
-  mutations: {},
+  mutations: {
+    pickCharacter(state, character) {
+      state.character = character;
+    },
+    updateUIState(state, uiState) {
+      state.uiState = uiState;
+    }
+  },
   actions: {},
   modules: {}
 });
